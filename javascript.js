@@ -54,7 +54,7 @@ function displayWinner(winner){
     if(winner === "tie"){
         console.log("TIE")
     }else{
-        console.log(winner+" won this round");
+        console.log(winner+" WON this round");
     }
 }
 // tally score 
