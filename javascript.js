@@ -105,4 +105,4 @@ function playGame(){
     getGameWinner()
 }
 
-playGame()
+// playGame()
