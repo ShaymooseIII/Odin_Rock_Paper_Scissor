@@ -106,7 +106,7 @@ function playGame(){
 }
 
 // assigning function to Play Game Button
-const body = document.body;
+const gameContainer = document.querySelector(".game-container");
 const playGamebtn = document.querySelector("#play-game");
 playGamebtn.addEventListener("click",()=>{
     // creating container for the rock paper scissor buttons
@@ -126,8 +126,8 @@ playGamebtn.addEventListener("click",()=>{
     optionsBtn.appendChild(paperBtn);
     optionsBtn.appendChild(scissorsBtn);
 
-    body.appendChild(optionsBtn);
+    gameContainer.appendChild(optionsBtn);
 
-    console.log("click")
+    console.log("click");
 
 });
