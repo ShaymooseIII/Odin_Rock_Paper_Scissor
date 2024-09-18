@@ -64,11 +64,25 @@ function getWinner(user,computer){
 }
 // Display winner
 function displayWinner(winner){
+    //Creation of the container for round winner
+    roundWinnerContainer = document.createElement("div");
+    roundWinnerContainer.classList.add("round-winner-container");
+
+    //Creation of the body for round winner
+    roundWinnerBody = document.createElement("h3");
+    roundWinnerBody.setAttribute("id", "round-winner-body");
+    
     if(winner === "tie"){
         console.log("TIE")
+        roundWinnerBody.textContent = "TIE"
     }else{
         console.log(winner+" WON this round");
+        roundWinnerBody.textContent = `${winner.toUpperCase()} WON this round`;
+
     }
+        //assigning children to parents 
+        roundWinnerContainer.appendChild(roundWinnerBody);
+        gameContainer.appendChild(roundWinnerContainer);
 }
 // tally score 
 function increaseScore(winner){
