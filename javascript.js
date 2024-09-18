@@ -8,17 +8,6 @@ wining_hand ={
 let humanScore = 0;
 let computerScore = 0;
 
-// DISPLAY prompt for user offering choice 
-// Take users INPUT and store into variable
-function getHumanChoice(){
-    user = prompt("Rock, Paper, or Scissors").toLowerCase();
-    while((user !== "rock") && (user !== "paper") && (user !=="scissors")){
-        user = prompt("Please select Rock, Paper, or Scissors");
-        console.log(user)
-    }
-    console.log("you choose " + user)
-    return user
-}
 // Function to CALCULATE random choice for computer
 function getComputerChoice(){
     let num = Math.floor(Math.random() * 3);
@@ -40,6 +29,7 @@ function getComputerChoice(){
 
 // Function to DETERMINE the two variables with dictionary 
 function getWinner(user,computer){
+    console.log("waiting");
     if (user === computer){
         winner = "tie"
     }else if(user === wining_hand[computer]){
@@ -75,8 +65,8 @@ function displayScore(humanScore, computerScore){
 }
 
 // FOR 1 round
-function playRound(){
-    let round_winner = getWinner(getHumanChoice(), getComputerChoice())
+function playRound(user){
+    let round_winner = getWinner(user, getComputerChoice())
     displayWinner(round_winner);
     increaseScore(round_winner);
     displayScore(humanScore,computerScore)
@@ -128,6 +118,21 @@ playGamebtn.addEventListener("click",()=>{
 
     gameContainer.appendChild(optionsBtn);
 
-    console.log("click");
+    // adding event delegation to the optionsBtn for human choice
+    optionsBtn.addEventListener('click', (event)=>{
 
+        console.log("clicked");
+        //Users choice to be passed into round
+        let target = event.target;
+        let user = target.textContent.toLowerCase();
+        console.log(target.textContent, user);
+        //check to see if someone won
+        if(humanScore === 5 || computerScore === 5){
+            getGameWinner()
+        }else{
+            //playing of the game
+            playRound(user);
+        }
+        
+    });
 });
