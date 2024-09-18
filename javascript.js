@@ -27,6 +27,28 @@ function getComputerChoice(){
     return computer
 }
 
+// Function to display user choices
+function displayChoices(user,computer){
+    //creating the container to display user and computer
+    choiceContainer = document.createElement("div");
+    choiceContainer.classList.add("choice-container");
+
+    //creating the user and computer content
+    userChoice = document.createElement("h3");
+    userChoice.setAttribute("id", "user-choice");
+    userChoice.textContent= `YOU CHOOSE ${user.toUpperCase()}`; 
+    
+    computerChoice = document.createElement("h3");
+    computerChoice.setAttribute("id", "computer-choice");
+    computerChoice.textContent= `COMPUTER CHOOSE ${computer.toUpperCase()}`;    
+
+    //assigning children to parents
+    choiceContainer.appendChild(userChoice);
+    choiceContainer.appendChild(computerChoice);
+
+    gameContainer.appendChild(choiceContainer);
+
+}
 
 // Function to DETERMINE the two variables with dictionary 
 function getWinner(user,computer){
@@ -67,7 +89,9 @@ function displayScore(humanScore, computerScore){
 
 // FOR 1 round
 function playRound(user){
-    let round_winner = getWinner(user, getComputerChoice())
+    computer = getComputerChoice();
+    displayChoices(user, computer);
+    let round_winner = getWinner(user, computer)
     displayWinner(round_winner);
     increaseScore(round_winner);
     displayScore(humanScore,computerScore)

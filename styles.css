@@ -1,3 +1,7 @@
+button{
+    width: 92px;
+}
+
 .header{
     text-align: center;
 }
@@ -12,4 +16,19 @@
     justify-content: center;
     gap: 8px;
     margin-top: 10px;
+}
+
+.choice-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+#user-choice{
+    width: 290px;
+    display: flex;
+    justify-content: end;
+}
+#computer-choice{
+    width: 290px;
+    display: flex;
+    justify-content: center;
 }
