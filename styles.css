@@ -37,3 +37,24 @@ button{
     display: flex;
     justify-content: center;
 }
+
+.score-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* flex: 1; */
+}
+
+.tally-container{
+    display: flex;
+    gap: 72px;
+    /* justify-content: space-between; */
+}
+
+.tally-left,
+.tally-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 110px;
+}

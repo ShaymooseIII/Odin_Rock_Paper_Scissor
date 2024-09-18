@@ -71,7 +71,7 @@ function displayWinner(winner){
     //Creation of the body for round winner
     roundWinnerBody = document.createElement("h3");
     roundWinnerBody.setAttribute("id", "round-winner-body");
-    
+
     if(winner === "tie"){
         console.log("TIE")
         roundWinnerBody.textContent = "TIE"
@@ -97,8 +97,54 @@ function increaseScore(winner){
 
 // DISPLAY score
 function displayScore(humanScore, computerScore){
-    console.log("----SCORE----")
-    console.log("user: "+ humanScore +"| computer"+ computerScore)
+    //creation of the score board container
+    scoreContainer = document.createElement("div");
+    scoreContainer.classList.add("score-container");
+
+    scoreHeader = document.createElement("h2");
+    scoreHeader.setAttribute("id", "score-header");
+    scoreHeader.textContent = "SCORE"
+
+    //score tally container
+    tallyContainer = document.createElement("div");
+    tallyContainer.classList.add("tally-container");
+
+    tallyLeft = document.createElement("div");
+    tallyLeft.classList.add("tally-left");
+    leftHeader = document.createElement("h3");
+    leftHeader.setAttribute("id","left-header");
+    leftHeader.textContent = "USER";
+    leftScore = document.createElement("h3");
+    leftScore.setAttribute("id", "left-score");
+    leftScore.textContent = `${humanScore}`
+
+    tallyRight = document.createElement("div");
+    tallyRight.classList.add("tally-right");
+    rightHeader = document.createElement("h3");
+    rightHeader.setAttribute("id","right-header");
+    rightHeader.textContent = "COMPUTER";
+    rightScore = document.createElement("h3");
+    rightScore.setAttribute("id", "right-score");
+    rightScore.textContent = `${computerScore}`
+
+    //assigning children to parents
+    scoreContainer.appendChild(scoreHeader);
+    scoreContainer.appendChild(tallyContainer);
+
+    tallyContainer.appendChild(tallyLeft);
+    tallyContainer.appendChild(tallyRight);
+
+    tallyLeft.appendChild(leftHeader);
+    tallyLeft.appendChild(leftScore);
+
+    tallyRight.appendChild(rightHeader);
+    tallyRight.appendChild(rightScore);
+
+    gameContainer.appendChild(scoreContainer);
+
+    console.log("----SCORE----");
+    console.log("user: "+ humanScore +"| computer"+ computerScore);
+
 }
 
 // FOR 1 round
