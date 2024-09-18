@@ -5,6 +5,7 @@ wining_hand ={
     "paper":"rock"
 }
 
+// initialize score
 let humanScore = 0;
 let computerScore = 0;
 
@@ -99,6 +100,14 @@ function playGame(){
 const gameContainer = document.querySelector(".game-container");
 const playGamebtn = document.querySelector("#play-game");
 playGamebtn.addEventListener("click",()=>{
+    // clear game container when a game is started
+    while(gameContainer.firstChild){
+        gameContainer.removeChild(gameContainer.lastChild);
+    }
+    //reset score
+    humanScore = 0;
+    computerScore = 0;
+
     // creating container for the rock paper scissor buttons
     const optionsBtn = document.createElement("div");
     optionsBtn.classList.add("options-container");
