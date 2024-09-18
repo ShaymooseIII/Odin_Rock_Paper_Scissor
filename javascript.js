@@ -213,7 +213,10 @@ playGamebtn.addEventListener("click",()=>{
 
     // adding event delegation to the optionsBtn for human choice
     optionsBtn.addEventListener('click', (event)=>{
-
+        //clear previous round 
+        while(optionsBtn.nextElementSibling){
+            gameContainer.removeChild(optionsBtn.nextElementSibling);
+        }
         console.log("clicked");
         //Users choice to be passed into round
         let target = event.target;
