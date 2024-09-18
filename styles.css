@@ -1,0 +1,15 @@
+.header{
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.options-container{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}

@@ -105,4 +105,29 @@ function playGame(){
     getGameWinner()
 }
 
-// playGame()
+// assigning function to Play Game Button
+const body = document.body;
+const playGamebtn = document.querySelector("#play-game");
+playGamebtn.addEventListener("click",()=>{
+    // creating container for the rock paper scissor buttons
+    const optionsBtn = document.createElement("div");
+    optionsBtn.classList.add("options-container");
+
+    //creation of the rock paper scissors button
+    const rockBtn = document.createElement("button");
+    rockBtn.textContent = "Rock";
+    const paperBtn = document.createElement("button");
+    paperBtn.textContent = "Paper";
+    const scissorsBtn = document.createElement("button");
+    scissorsBtn.textContent = "scissors";
+
+    //adding all children to proper parent
+    optionsBtn.appendChild(rockBtn);
+    optionsBtn.appendChild(paperBtn);
+    optionsBtn.appendChild(scissorsBtn);
+
+    body.appendChild(optionsBtn);
+
+    console.log("click")
+
+});
