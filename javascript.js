@@ -159,16 +159,30 @@ function playRound(user){
 }
 // DETERMINE game winner
 function getGameWinner(){
-    if(humanScore === computerScore){
-        console.log("GAME OVER")
-        console.log("----TIE----")
-    } else if(humanScore > computerScore){
+    //creation of the winning container
+    winnerContainer = document.createElement("div");
+    winnerContainer.classList.add("winner-container");
+
+    //creation of the body in winning container
+    gameOver=document.createElement("p");
+    gameOver.setAttribute("id","game-over");
+    gameOver.textContent = "----GAME OVER----"; winner=document.createElement("p");
+    winner.setAttribute("id","winner");
+
+    if(humanScore > computerScore){
         console.log("GAME OVER")
         console.log("----USER WON----")
+        winner.textContent = "YOU WON";
     }else{
         console.log("GAME OVER")
         console.log("----COMPUTER WON----")
+        winner.textContent = "YOU LOSE";
     }
+
+    winnerContainer.appendChild(gameOver);
+    winnerContainer.appendChild(winner);
+
+    gameContainer.appendChild(winnerContainer);
 }
 
 
@@ -222,12 +236,15 @@ playGamebtn.addEventListener("click",()=>{
         let target = event.target;
         let user = target.textContent.toLowerCase();
         console.log(target.textContent, user);
+        //playing of the game
+        playRound(user);
         //check to see if someone won
         if(humanScore === 5 || computerScore === 5){
-            getGameWinner()
-        }else{
-            //playing of the game
-            playRound(user);
+            //Clear game container
+            while(gameContainer.firstChild){
+                gameContainer.removeChild(gameContainer.lastChild);
+            }
+                getGameWinner()
         }
         
     });

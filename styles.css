@@ -58,3 +58,18 @@ button{
     align-items: center;
     width: 110px;
 }
+
+.winner-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#game-over{
+    font-size: 72px;
+}
+
+#winner{
+    font-size: 64px;
+    margin: 0px;
+}
